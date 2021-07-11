@@ -98,11 +98,11 @@ class DjangoStrategy(BaseStrategy):
         except (TypeError, TemplateDoesNotExist):
             return render_template_string(self.request, html, context)
 
-    def authenticate(self, backend, *args, **kwargs):
-        kwargs['strategy'] = self
-        kwargs['storage'] = self.storage
-        kwargs['backend'] = backend
-        return authenticate(*args, **kwargs)
+    # def authenticate(self, backend, *args, **kwargs):
+    #     kwargs['strategy'] = self
+    #     kwargs['storage'] = self.storage
+    #     kwargs['backend'] = backend
+    #     return authenticate(*args, **kwargs)
 
     def clean_authenticate_args(self, request, *args, **kwargs):
         # pipelines don't want a positional request argument
